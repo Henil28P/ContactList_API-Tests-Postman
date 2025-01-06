@@ -36,3 +36,51 @@ A Postman-based API Automation Software Testing project for To-Do List Node.js W
 5. `DELETE/{contactId}` request: deletes a specific contact
 
 - Postman documentation: https://documenter.getpostman.com/view/4012288/2s8YRiKDbu
+
+# 5 negative testing scenarios
+
+1. A request is sent with a missing authentication token
+
+- We can generate a 401 response by using an invalid token or no token at all.
+
+2. A record is not found
+
+- `404 Not Found` response from server means that the contact that we're looking for (specified by the unique ID in the API URL), does not exist.
+- Example: doing a `GET` request on a contact that does not exist results in a 404 error.
+- A 404 is a "Not Found" error, so trying to GET a contact that does not exist would return the 404 status code.
+
+3. A request is sent with missing required information
+
+- Leave mandatory firstName field empty in the raw JSON-formatted Request Body of POST and server will give 400 Bad Request response with the error message "firstName is required".
+
+4. A value is sent with too many characters
+5. A value is sent that is not in the correct format
+
+# Environments and Environment variables
+
+- Environment: A group of variables in Postman
+- Initial Value: The variable value that is saved in the environment file.
+- Current Value: A temporary variable value.
+- Note: To use Environment variables in the request bodies in Postman, use `{{variable_name}}`
+
+# Saving Environment Variables
+
+- Variables can be programmatically saved using the `Tests` tab of the Postman request (can use Javascript to save a value that was returned). Once the variable has been saved, it can be used in all other requests.
+- Suggestions:
+
+1. Save contactId for reuse
+2. Save token for reuse
+
+- The contactId variable can also be used in the Update Contact request and the Delete Contact request.
+
+Other variables that could be used in the add contact request are:
+
+- firstName
+- lastName
+- birthdate
+- email
+- phone
+- country
+- stateProvince
+- postalCode
+- city
