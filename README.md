@@ -129,3 +129,39 @@ Other variables that could be used in the add contact request are:
 2. Check that the authentication token is sent
 3. Check that the URL of the request is correct
 4. Check that all variables have populated correctly in the request (those variables could be in the URL or the body of the request).
+
+# Advanced Postman Assertions
+
+# 1. JSON Assertions
+
+- This involves writing assertions for the JSON we receive as the response to a request.
+- JSON: JavaScript Object Notation
+- API requests and responses are often in JSON format
+- Difference between a body assertion and a JSON assertion: A body assertion, you are just looking for a value somewhere in the body. With a JSON assertion, you are looking for a specific field value and validating that it's what you expected.
+
+# 2. Nested JSON Assertions
+
+- Nested JSON - JSON that has values nested inside another object.
+- Example: an address object having 4 different values inside it of keys with "street", "city", "stateProvince", etc and their own values.
+- `Mock API` - one that doesn't communicate with a server. The responses are hard coded in the form of examples.
+
+# Asserting on complicated JSON
+
+1. JSON Structure
+
+- name-value pairs, objects, arrays
+- A name-value pair is made up of a field name, and a value for the field name: `"firstName": "Amy"`
+- An object is a group of name-value pairs. Example: Pet object:
+  {
+  "Name": "Fido",
+  "Type": "Dog"
+  }
+- An array is a group of objects indicated by []
+
+# Tips for Navigating Complicated Assertions
+
+- Objects are in curly brackets: {}
+- Arrays are in square brackets: []
+- Arrays will always need a bracketed number, even if there's only 1 item in the array; then the number will be [0]
+- Work from left to right, using thee indentations to determine the order of navigation
+- Any time there's an indentation, you'll need a new dot in the navigation.
