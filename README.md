@@ -84,3 +84,48 @@ Other variables that could be used in the add contact request are:
 - stateProvince
 - postalCode
 - city
+
+# Turning Postman requests into actual tests
+
+- Turn Postman requests into actual tests by adding assertion scripts to the requests.
+
+# Type 1 - Status Type Assertions
+
+- This type of assertion validates that the status code we receive as a response to a request is the one we are expecting.
+- Typical status type assertions
+
+1. `200`: The request was completed as expected.
+2. `201`: A new resource was created.
+3. `401`: The user is not authenticated.
+4. `404`: The resource was not found.
+
+# Type 2 - Body Assertions
+
+- A body assertion verifies that the body of the response contains the text that we were expecting.
+
+1. `Response body: Contains string`: The text is in the body of the response, but may not be the entire response. This assertion uses "to include".
+2. `Response body: Is equal to a string`: The text matches the entire body of the response. This assertion uses "to have".
+
+- Often use portion assertions when you are asserting on an error message. However, if a response body is very short, just a few words, then usually assert on the whole body.
+
+# Type 3 - Header and Response Time Assertion
+
+- Helpful for security and performance testing
+- Add an assertion to test the header values in our response - `Response Headers`: Information passed with an API response that includes additional information about the response, such as the format of the response or any security controls.
+- For this Postman project, an assertion that will be added will verify that we are getting JSON back in the response and not some other Content-Type.
+- Some security headers assertions for API include: X-XSS to protect against cross-side scripting attacks.
+
+2. Add an assertion to make sure that responses are coming back within a reasonable time - `Response Time`: The time it takes for a request to reach the server and return a response.
+
+- You can also add a common assertion test scripts in Postman for all requests in a specific collection or folder by going into Edit and selecting any performance related test such as `Response Time is less than 200ms` and this assertion test will be applicable for all requests under that collection or folder.
+
+# Debugging with the Postman Console
+
+- Postman console can be helpful in debugging our test assertions and see why certain tests are failing.
+- Whenever you have requests not working as you expect them to or your assertions are failing, use the Postman console to help you debug.
+- Some things to look for in the Postman console:
+
+1. Check that your HTTP verb is correct (GET, POST, PUT, DELETE)
+2. Check that the authentication token is sent
+3. Check that the URL of the request is correct
+4. Check that all variables have populated correctly in the request (those variables could be in the URL or the body of the request).
