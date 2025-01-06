@@ -18,6 +18,7 @@ A Postman-based API Automation Software Testing project for To-Do List Node.js W
 
 1. Collections - all the requests and assertions for an API; the top-level folder
 2. Folders - a group of requests and assertions that reside in a collection. It's even possible to create nested folders.
+3. Bearer Token (Auth type) -
 
 # JSON Web Tokens (JWTs)
 
@@ -25,3 +26,13 @@ A Postman-based API Automation Software Testing project for To-Do List Node.js W
 - The most common way to secure APIs is through a JSON Web Tokens (JWTs) this token is generated through a POST request.
 - When a valid username and password are sent in the request, a JWT is generated.
 - The JWT can then be used in all requests to the API to interact with the app.
+
+# Requests to the Contact List API
+
+1. `GET` request: returns list of all contacts
+2. `GET/{contactId}` request: returns 1 specific contact
+3. `POST` request: adds a new contact
+4. `PUT/{contactId}` request: updates the data for an existing specific contact
+5. `DELETE/{contactId}` request: deletes a specific contact
+
+- Postman documentation: https://documenter.getpostman.com/view/4012288/2s8YRiKDbu
