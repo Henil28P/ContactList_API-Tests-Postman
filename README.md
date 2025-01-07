@@ -165,3 +165,23 @@ Other variables that could be used in the add contact request are:
 - Arrays will always need a bracketed number, even if there's only 1 item in the array; then the number will be [0]
 - Work from left to right, using thee indentations to determine the order of navigation
 - Any time there's an indentation, you'll need a new dot in the navigation.
+
+# Running your Test Collections
+
+1. Using the Postman Collection runner
+
+- We can automate our tests instead of running them manually by clicking the "Send" button
+- Collection Runner: A feature of Postman that will send in each request of our collection automatically rather than testers having to manually press "Send" button for each request in the collection
+- Collection Runner is a great tool to check our test collection before trying to run it from the command line.
+- Suggestion: Before running in Newman through command line, it is better to use the Postman Collection Runner to automatically test each request in the collection.
+
+2. Exporting your Collection and Environment in Postman
+
+- Export collection and environment as JSON files to run the collection from command line with Newman.
+
+3. Running collection with Newman (tool created by Postman)
+
+- Check to see if Newman is installed by `$ newman --version` and should get back version number
+- Change directory to where the collection and environment JSON files are stored at (eg. `$ cd Downloads`)
+- To run the entire collection (including all folders within it): `$ newman run contactList.collection.json -e contactList.environment.json` where `-e` specified the environment
+- To see the other command options: `$ newman run -h` for help menu
